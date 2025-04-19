@@ -1,0 +1,9 @@
+/* Webfont: PrettyNeat-Bold */@font-face {
+    font-family: 'PrettyNeat';
+    src: url('PrettyNeat-Bold.woff2') format('woff2'), /* Modern Browsers */
+         url('PrettyNeat-Bold.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+

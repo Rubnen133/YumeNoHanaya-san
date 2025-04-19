@@ -1,0 +1,9 @@
+/* Webfont: PrettyNeat-Italic */@font-face {
+    font-family: 'PrettyNeat';
+    src: url('PrettyNeat-Italic.woff2') format('woff2'), /* Modern Browsers */
+         url('PrettyNeat-Italic.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
