@@ -47,9 +47,12 @@
         </div>
         <div id="sidebar-bottom">
             @if(\Illuminate\Support\Facades\Auth::user() == null)
-                <p>Not logged in</p>
+                <div>Not logged in</div>
             @else
-                <p>Logged in as @yield("username")</p>
+                <img src="images/pfp_placeholder.jpg" alt="" id="sidebar-pfp">
+                <div>
+                    @yield("username")
+                </div>
             @endguest
         </div>
     </div>

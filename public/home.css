@@ -118,11 +118,28 @@ body{
     width: 100%;
     border-top: var(--brown) 3px dashed;
 }
-#sidebar-bottom{
+
+#sidebar-bottom {
     grid-row: 3;
+    display: grid;
+    grid-template-columns: 30% minmax(0, 70%);
+    padding: 4% 10%;
+    align-items: center;
 }
 
+#sidebar-pfp {
+    width: inherit;
+    height: 100%;
+    clip-path: circle();
+}
 
+#sidebar-bottom > div {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    font-family: "Pretty Neat";
+    text-align: center;
+    color: var(--brown);
+}
 
 #feed-wrapper{
     grid-column: 2;
