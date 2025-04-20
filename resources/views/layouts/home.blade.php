@@ -47,9 +47,9 @@
         </div>
         <div id="sidebar-bottom">
             @if(\Illuminate\Support\Facades\Auth::user() == null)
-                <div>Not logged in</div>
+                <div style="grid-column: 2">Not logged in</div>
             @else
-                <img src="images/pfp_placeholder.jpg" alt="" id="sidebar-pfp">
+                <img src="{{Auth::user()->avatar}}" alt="" id="sidebar-pfp">
                 <div>
                     @yield("username")
                 </div>

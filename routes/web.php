@@ -19,7 +19,7 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('/', "App\Http\Controllers\HomeController@index")->name("home");
 Route::get('/auth/redirect', function () {
 
-    return Socialite::driver('github')->redirect();
+    return Socialite::driver('github')->with(['prompt' => 'select_account'])->redirect();
 
 })->name('git_redirect');
 
