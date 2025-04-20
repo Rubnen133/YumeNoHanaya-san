@@ -148,6 +148,51 @@ body{
 #feed{
     padding: 0 clamp(5%, 28%, 50%);
 }
+
+#new-post {
+    margin-bottom: 5vh;
+    background: linear-gradient(90deg, var(--dark-peach) 0%, var(--peach) 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: var(--brown) 1px dashed;
+    display: grid;
+    grid-template-columns: auto 20%;
+    gap: 5%;
+}
+
+label[for="upload"], label[for="submit"] {
+    font-family: 'Nagino';
+    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-columns: min-content auto;
+    align-items: center;
+}
+
+label[for="upload"] {
+    grid-column: 1;
+    background-color: var(--brown);
+    color: var(--surface);
+    padding: 3%;
+}
+
+#upload {
+    grid-column: 1;
+    display: none;
+}
+
+label[for="submit"] {
+    grid-column: 2;
+    color: var(--brown);
+    padding: 7%;
+}
+
+#submit {
+    grid-column: 2;
+    display: none;
+}
+
 .post{
     margin-bottom: 5rem;
     width: inherit;

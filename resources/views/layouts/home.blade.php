@@ -58,6 +58,19 @@
     </div>
     <div id="feed-wrapper">
         <div id="feed">
+            <form id="new-post">
+                <label for="upload">
+                    <span class="material-icons md-24">add</span>
+                    <p style="padding: 0 10%; margin: 0; grid-column: 2;">Browse files...</p>
+                </label>
+                <input type="file" id="upload" name="upload">
+
+                <label for="submit">
+                    <span class="material-icons md-24">send</span>
+                    <p style="padding: 0 10%; margin: 0; grid-column: 2;">Post</p>
+                </label>
+                <input type="submit" id="submit">
+            </form>
             @yield("posts")
         </div>
     </div>

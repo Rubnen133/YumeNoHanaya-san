@@ -1,0 +1,218 @@
+:root {
+    --surface: #FFF1EB;
+    --peach: #FBBEA2;
+    --dark-peach: #F08E8F;
+    --accent-red: #EA5A3C;
+    --brown: #604141;
+    --border-radius: 2rem;
+}
+
+@font-face {
+    font-family: 'Pretty Neat';
+    src: url('fonts/PrettyNeat/PrettyNeat-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretty Neat Bold';
+    src: url('fonts/PrettyNeat/PrettyNeat-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nagino';
+    src: url('fonts/Nagino-main/nagino.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    user-select: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 18vw auto;
+    height: 100vh;
+    background-color: var(--surface);
+    background-image: url(images/background1.png);
+    background-blend-mode: color-burn;
+    background-size: contain;
+}
+
+#sidebar {
+    position: fixed;
+    margin: 0;
+    grid-column: 1;
+    height: 100%;
+    width: 18vw;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    background: linear-gradient(0deg, var(--dark-peach) 0%, var(--peach) 100%);
+    display: grid;
+    grid-template-rows: 18% 72% 10%;
+    grid-template-columns: 100%;
+}
+
+#sidebar-top {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 45% 50%;
+    gap: 5%;
+}
+
+#sidebar-logo > img {
+    height: 80%;
+    width: 80%;
+    object-fit: contain;
+}
+
+#sidebar-logo {
+    margin: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar-title {
+    display: flex;
+    align-items: center;
+    font-family: "Nagino";
+    font-size: 2rem;
+    background: -webkit-linear-gradient(var(--accent-red), var(--brown));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#sidebar-links-wrapper {
+    grid-row: 2;
+    padding: 0 2rem;
+    justify-content: left;
+}
+
+#sidebar-links {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--brown);
+}
+
+.single-link {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding-bottom: 2rem;
+    align-items: center;
+}
+
+.link-text {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    font-family: "Pretty Neat";
+}
+
+.sidebar-line {
+    grid-row: 2;
+    height: 0;
+    width: 100%;
+    border-top: var(--brown) 3px dashed;
+}
+
+#sidebar-bottom {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 30% minmax(0, 70%);
+    padding: 4% 10%;
+    align-items: center;
+}
+
+#sidebar-pfp {
+    width: inherit;
+    height: 100%;
+    clip-path: circle();
+}
+
+#sidebar-bottom > div {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    font-family: "Pretty Neat";
+    text-align: center;
+    color: var(--brown);
+}
+
+
+#profile {
+    grid-column: 2;
+    padding: 5% 10%;
+}
+
+#profile-grid {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 40% 30% auto;
+    height: 50%;
+}
+
+#banner {
+    background-color: var(--dark-peach);
+    grid-row: 1/ span 2;
+    grid-column: 1/ span 2;
+    outline: 2px var(--brown) dashed;
+    border-radius: var(--border-radius);
+    background-size: cover;
+}
+
+#pfp {
+    background-size: cover;
+    background-color: var(--accent-red);
+    grid-row: 2/ span 2;
+    grid-column: 1;
+    clip-path: circle();
+}
+
+#info {
+    grid-row: 3;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: auto min-content;
+    grid-template-rows: 50% 50%;
+    padding-top: 2%;
+    color: var(--brown);
+    font-family: 'Pretty Neat';
+}
+
+#user-pron {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: center;
+}
+
+#user-pron > #username {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 2rem;
+}
+
+#user-pron > #pronouns {
+    grid-column: 2;
+    grid-row: 1;
+    padding-left: 2rem;
+    color: var(--brown);
+    opacity: 70%;
+    font-size: 1.5rem;
+}
+
+#info > #description {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 1.2rem;
+}
+
+#info > span {
+    grid-column: 2;
+    grid-row: 1;
+}
