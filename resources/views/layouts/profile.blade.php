@@ -25,7 +25,7 @@
             <div id="sidebar-links">
                 <div class="single-link">
                     <span class="material-icons md-36">home</span>
-                    <div class="link-text">Home</div>
+                    <a class="link-text" href="{{route('home')}}">Home</a>
                 </div>
 
                 <div class="single-link">
@@ -54,18 +54,15 @@
     </div>
     <div id="profile">
         <div id="profile-grid">
-            <div id="banner" style="background-image: url(images/101755206_p0_master1200.jpg);"></div>
-            <div id="pfp" style="background-image: url(images/pfp_placeholder.jpg);"></div>
+            <div id="banner" style="background-image: url(@yield('banner'));"></div>
+            <div id="pfp" style="background-image: url(@yield('pfp')"></div>
             <div id="info">
                 <div id="user-pron">
-                    <div id="username">Liana Flores</div>
-                    <div id="pronouns">she/her</div>
+                    <div id="username">@yield('username')</div>
+                    <div id="pronouns">@yield('pronouns')</div>
                 </div>
                 <div id="description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cupiditate culpa modi ab error, illum impedit laboriosam amet.
-                    Id sunt fugit omnis nobis ea nostrum delectus similique cum eius dignissimos!
-                    Eligendi?
+                    @yield('description')
                 </div>
                 <span class="material-icons md-24">edit</span>
             </div>

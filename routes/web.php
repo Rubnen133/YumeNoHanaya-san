@@ -37,7 +37,7 @@ Route::get('/auth/callback', function () {
     ]);
 
     Auth::login($user);
-    return redirect('/debug');
+    return redirect('/');
 
 })->name('git_callback');
 
@@ -49,3 +49,5 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 })->name("logout");
+
+Route::get('/profile', 'App\Http\Controllers\UserPagesController@profile')->name('profile');

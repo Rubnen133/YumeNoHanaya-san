@@ -25,7 +25,7 @@
             <div id="sidebar-links">
                 <div class="single-link">
                     <span class="material-icons md-36">home</span>
-                    <div class="link-text">Home</div>
+                    <a class="link-text" href="{{route('home')}}">Home</a>
                 </div>
 
                 <div class="single-link">
