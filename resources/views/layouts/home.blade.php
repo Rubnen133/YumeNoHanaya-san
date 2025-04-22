@@ -64,6 +64,7 @@
 
     <div id="feed-wrapper">
         <div id="feed">
+            @if(\Illuminate\Support\Facades\Auth::user() != null)
             <form id="new-post" action="{{route('post')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
@@ -79,7 +80,7 @@
                 </label>
                 <input type="submit" id="submit">
             </form>
-
+            @endif
 
             @yield("posts")
         </div>
