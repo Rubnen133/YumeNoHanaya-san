@@ -46,9 +46,9 @@
             <div class="sidebar-line"></div>
         </div>
         <div id="sidebar-bottom">
-            <img src="images/pfp_placeholder.jpg" alt="" id="sidebar-pfp">
+            <img src="@yield('pfp')" alt="" id="sidebar-pfp">
             <div>
-                Liana Flores
+                @yield('username')
             </div>
         </div>
     </div>
