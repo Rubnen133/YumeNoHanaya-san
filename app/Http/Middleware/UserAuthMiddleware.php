@@ -20,7 +20,7 @@ class UserAuthMiddleware
         if (Auth::user()) {
             return $next($request);
         } else {
-            return redirect()->route('home');
+            return redirect()->route('git_redirect');
         }
     }
 }

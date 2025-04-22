@@ -47,10 +47,7 @@ Route::get('/debug', function (){
 })->name("debug");
 
 Route::middleware(UserAuthMiddleware::class)->group(function () {
-    Route::get('/logout', function () {
-        Auth::logout();
-        return redirect('/');
-    })->name("logout");
+    Route::get('/logout', 'App\Http\Controllers\UserActionsController@logout')->name("logout");
     Route::get('/profile', 'App\Http\Controllers\UserPagesController@profile')->name('profile');
     Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
 });

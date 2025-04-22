@@ -15,6 +15,11 @@ class Post extends Model
     private $created_at = 'created_at';
     private $updated_at = 'updated_at';
 
+    protected $fillable = [
+        'user_id',
+        'image',
+    ];
+
     public function getId(): string
     {
         return $this->id;
@@ -44,27 +49,6 @@ class Post extends Model
     {
         $this->image = $image;
     }
-
-    public function getCreatedAt(): string
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(string $created_at): void
-    {
-        $this->created_at = $created_at;
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(string $updated_at): void
-    {
-        $this->updated_at = $updated_at;
-    }
-
     public function user(){
         return $this->belongsTo(User::class);
     }

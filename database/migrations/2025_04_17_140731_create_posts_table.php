@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('image', length: 20);
+            $table->string('image', length: 40);
             $table->foreignId('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

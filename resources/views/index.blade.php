@@ -7,7 +7,7 @@
             <img src="{{asset($post['avatar'])}}" alt="" class="avatar">
             <p class="username">{{$post['username']}}</p>
         </div>
-        <img src="{{$post['image']}}" alt="" class="post-img">
+        <img src="{{asset("storage/{$post['image']}")}}" alt="" class="post-img">
         <div class="post-bottom">
             <div class="post-interaction">
                 <span class="material-icons md-36">favorite</span>

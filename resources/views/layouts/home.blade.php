@@ -30,7 +30,7 @@
 
                 <div class="single-link">
                     <span class="material-icons md-36">account_circle</span>
-                    <a class="link-text" href="{{route('git_redirect')}}">Profile</a>
+                    <a class="link-text" href="{{route('profile')}}">Profile</a>
                 </div>
 
                 <div class="single-link">
