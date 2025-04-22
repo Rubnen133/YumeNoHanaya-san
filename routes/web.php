@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\UserAuthMiddleware;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,10 +46,11 @@ Route::get('/debug', function (){
     dd(Auth::user());
 })->name("debug");
 
-Route::get('/logout', function () {
-    Auth::logout();
-    return redirect('/');
-})->name("logout");
-
-Route::get('/profile', 'App\Http\Controllers\UserPagesController@profile')->name('profile');
-Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
+Route::middleware(UserAuthMiddleware::class)->group(function () {
+    Route::get('/logout', function () {
+        Auth::logout();
+        return redirect('/');
+    })->name("logout");
+    Route::get('/profile', 'App\Http\Controllers\UserPagesController@profile')->name('profile');
+    Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
+});
