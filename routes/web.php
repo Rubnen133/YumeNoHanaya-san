@@ -51,3 +51,4 @@ Route::get('/logout', function () {
 })->name("logout");
 
 Route::get('/profile', 'App\Http\Controllers\UserPagesController@profile')->name('profile');
+Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
