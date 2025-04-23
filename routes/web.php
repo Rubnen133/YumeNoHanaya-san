@@ -25,4 +25,5 @@ Route::middleware(UserAuthMiddleware::class)->group(function () {
     Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name("logout");
     Route::get('/profile', 'App\Http\Controllers\UserPagesController@profile')->name('profile');
     Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
+    Route::post('/edit', 'App\Http\Controllers\UserActionsController@edit')->name('edit');
 });

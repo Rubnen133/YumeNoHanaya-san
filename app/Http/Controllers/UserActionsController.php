@@ -27,4 +27,45 @@ class UserActionsController
         }
         return back();
     }
+    public function edit(Request $request){
+        $user = Auth::user();
+        $request->validate([
+            'username' => 'string|max:255|nullable',
+            'pronouns' => 'string|max:20|nullable',
+            'description' => 'string|max:255|nullable',
+            'avatar' => 'image|nullable',
+            'banner' => 'image|nullable',
+        ]);
+
+
+        if ($request->hasFile('avatar')) {
+            $imageName = "user{$user->id}.".$request->file('avatar')->extension();
+            Storage::disk('public')->put(
+                $imageName, file_get_contents($request->file('avatar')->getRealPath())
+            );
+            $user->avatar = $imageName;
+
+        }
+        // TODO: add column banner to table user
+        /*if ($request->hasFile('banner')) {
+            $imageName = "user{$user->id}.".$request->file('banner')->extension();
+            Storage::disk('public')->put(
+                $imageName, file_get_contents($request->file('banner')->getRealPath())
+            );
+            $user->banner = $imageName;
+
+        }*/
+        if($request->has('username') && $request->get('username') != null){
+            $user->name = $request->input('username');
+        }
+        if($request->has('pronouns') && $request->get('pronouns') != null){
+            $user->pronouns = $request->input('pronouns');
+        }
+        if($request->has('description') && $request->get('description') != null){
+            $user->bio = $request->input('description');
+        }
+        $user->save();
+        return redirect()->route('profile');
+
+    }
 }

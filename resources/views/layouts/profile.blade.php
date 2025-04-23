@@ -67,5 +67,28 @@
                 <span class="material-icons md-24">edit</span>
             </div>
         </div>
+
+
+        <div id="edit">
+            <form action="{{route('edit')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('post')
+                <div id="text-fields">
+                    <label for="username">Username</label>
+                    <input type="text" name="username">
+                    <label for="pronouns">Pronouns</label>
+                    <input type="text" name="pronouns">
+                    <label for="description">Description</label>
+                    <input type="text" name="description">
+                </div>
+                <div id="image-fields">
+                    <label for="avatar">Avatar</label>
+                    <input type="file" name="avatar">
+                    <label for="banner">Banner</label>
+                    <input type="file" name="banner">
+                </div>
+                <input type="submit" name="submit">
+            </form>
+        </div>
     </div>
 </body>
