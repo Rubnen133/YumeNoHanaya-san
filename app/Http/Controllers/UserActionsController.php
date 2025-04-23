@@ -10,12 +10,6 @@ use Symfony\Component\Console\Input\Input;
 
 class UserActionsController
 {
-
-    public function logout(){
-        Auth::logout();
-        return redirect()->route('home');
-    }
-
     public function post(Request $request){
         $newPost = Post::create([
             'user_id' => Auth::id(),

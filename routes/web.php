@@ -18,36 +18,11 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/', "App\Http\Controllers\HomeController@index")->name("home");
-Route::get('/auth/redirect', function () {
-
-    return Socialite::driver('github')->with(['prompt' => 'select_account'])->redirect();
-
-})->name('git_redirect');
-
-Route::get('/auth/callback', function () {
-
-    $githubUser = Socialite::driver('github')->user();
-    $user = User::updateOrCreate([
-        'git_id' => $githubUser->id,
-    ], [
-        'git_id' => $githubUser->id,
-        'git_token' => $githubUser->token,
-        'name' => $githubUser->name,
-        'email' => $githubUser->email,
-        'avatar' => $githubUser->avatar,
-    ]);
-
-    Auth::login($user);
-    return redirect('/');
-
-})->name('git_callback');
-
-Route::get('/debug', function (){
-    dd(Auth::user());
-})->name("debug");
-
+Route::get('/nina', 'App\Http\Controllers\LoginController@nina')->name('nina');
+Route::get('/auth/redirect', 'App\Http\Controllers\LoginController@gitredirect')->name('git_redirect');
+Route::get('/auth/callback', 'App\Http\Controllers\LoginController@gitcallback')->name('git_callback');;
 Route::middleware(UserAuthMiddleware::class)->group(function () {
-    Route::get('/logout', 'App\Http\Controllers\UserActionsController@logout')->name("logout");
+    Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name("logout");
     Route::get('/profile', 'App\Http\Controllers\UserPagesController@profile')->name('profile');
     Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
 });
