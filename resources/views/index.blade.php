@@ -4,7 +4,7 @@
     @foreach($viewData as $post)
     <div class="post">
         <div class="post-top">
-            <img src="{{asset($post['avatar'])}}" alt="" class="avatar">
+            <img src="{{$post['avatar']}}" alt="" class="avatar">
             <p class="username">{{$post['username']}}</p>
         </div>
         <img src="{{asset("storage/{$post['image']}")}}" alt="" class="post-img">

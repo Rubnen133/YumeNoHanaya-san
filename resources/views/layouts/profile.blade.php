@@ -55,7 +55,7 @@
     <div id="profile">
         <div id="profile-grid">
             <div id="banner" style="background-image: url(@yield('banner'));"></div>
-            <div id="pfp" style="background-image: url(@yield('pfp')"></div>
+            <div id="pfp" style="background-image: url(@yield('pfp'))"></div>
             <div id="info">
                 <div id="user-pron">
                     <div id="username">@yield('username')</div>
@@ -74,20 +74,30 @@
                 @csrf
                 @method('post')
                 <div id="text-fields">
-                    <label for="username">Username</label>
-                    <input type="text" name="username">
-                    <label for="pronouns">Pronouns</label>
-                    <input type="text" name="pronouns">
-                    <label for="description">Description</label>
-                    <input type="text" name="description">
+                    <div>
+                        <label for="username">Username</label>
+                        <input type="text" name="username">
+                    </div>
+                    <div>
+                        <label for="pronouns">Pronouns</label>
+                        <input type="text" name="pronouns">
+                    </div>
+                    <div>
+                        <label for="description">Description</label>
+                        <textarea name="description" maxlength="255"></textarea>
+                    </div>
                 </div>
                 <div id="image-fields">
-                    <label for="avatar">Avatar</label>
-                    <input type="file" name="avatar">
-                    <label for="banner">Banner</label>
-                    <input type="file" name="banner">
+                    <div>
+                        <label for="avatar">Avatar</label>
+                        <input type="file" name="avatar">
+                    </div>
+                    <div>
+                        <label for="banner">Banner</label>
+                        <input type="file" name="banner">
+                    </div>
                 </div>
-                <input type="submit" name="submit">
+                <input type="submit" name="submit" id="submit">
             </form>
         </div>
     </div>

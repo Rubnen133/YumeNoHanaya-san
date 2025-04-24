@@ -49,7 +49,7 @@
             @if(\Illuminate\Support\Facades\Auth::user() == null)
                 <div style="grid-column: 2">Not logged in</div>
             @else
-                <img src="{{Auth::user()->avatar}}" alt="" id="sidebar-pfp">
+                <img src="{{$loggedUserAvatar}}" alt="" id="sidebar-pfp">
                 <div>
                     @yield("username")
                 </div>
