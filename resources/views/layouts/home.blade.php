@@ -94,7 +94,6 @@
     <div id="right-side">
         <div id="boxes-wrapper">
             <div class="box box1" style="background-image: url({{asset("images/bouquetLamp.jpg")}});">
-
             </div>
             <div id="bottom-boxes">
                 <div class="box box2" style="background-image: url({{asset("images/bookOnChair.jpg")}});">

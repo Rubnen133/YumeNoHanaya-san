@@ -1,6 +1,5 @@
 @extends('layouts.home')
 @section('posts')
-
     @foreach($viewData as $post)
     <div class="post">
         <div class="post-top">
@@ -10,7 +9,14 @@
         <img src="{{asset("storage/{$post['image']}")}}" alt="" class="post-img">
         <div class="post-bottom">
             <div class="post-interaction">
-                <span class="material-icons md-36">favorite</span>
+                <span class="material-icons md-36" style="
+                        @if(\Illuminate\Support\Facades\Auth::user() != null)
+                            @if(in_array($post['id'], $like_ids))
+                                color: var(--accent-red) !important;
+                            @endif
+                        @endif
+                ">favorite</span>
+
                 <span class="material-icons md-36">comment</span>
             </div>
         </div>
