@@ -40,7 +40,7 @@
 
                 <div class="single-link">
                     <span class="material-icons md-36">favorite</span>
-                    <div class="link-text">Liked</div>
+                    <a class="link-text" href="{{route('liked')}}">Liked</a>
                 </div>
             </div>
             <div class="sidebar-line"></div>
