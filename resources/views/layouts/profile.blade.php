@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <head>
     <title>Yume No Hanaya-san</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script>
+        function uploadChange(uploadField){
+            console.log("wawa1");
+            var file = $('#'.concat(uploadField, 'Upload'))[0].files[0].name;
+            console.log(file);
+            $('#'.concat(uploadField, '-upload-label > p')).text(file);
+            console.log("wawa2");
+        }
+    </script>
     <link rel="stylesheet" href="profile.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -89,12 +99,20 @@
                 </div>
                 <div id="image-fields">
                     <div>
-                        <label for="avatar">Avatar</label>
-                        <input type="file" name="avatar">
+                        <label style="grid-column: 1; background-color: #00000000; color: var(--brown);">Avatar</label>
+                        <label for="avatar" id="avatar-upload-label">
+                            <span class="material-icons md-24">add</span>
+                            <p style="padding: 0 10%; margin: 0; grid-column: 2;">Browse files...</p>
+                        </label>
+                        <input type="file" name="avatarUpload" onchange="uploadChange('avatar')">
                     </div>
                     <div>
-                        <label for="banner">Banner</label>
-                        <input type="file" name="banner">
+                        <label style="grid-column: 1; background-color: #00000000; color: var(--brown);">Banner</label>
+                        <label for="banner" id="banner-upload-label">
+                            <span class="material-icons md-24">add</span>
+                            <p style="padding: 0 10%; margin: 0; grid-column: 2;">Browse files...</p>
+                        </label>
+                        <input type="file" name="bannerUpload" onchange="uploadChange('banner')">
                     </div>
                 </div>
                 <input type="submit" name="submit" id="submit">

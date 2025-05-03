@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <head>
     <title>Yume No Hanaya-san</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script>
+        function uploadChange(){
+                console.log("wawa1");
+                var i = $(this).prev('label').clone();
+                console.log(i);
+                var file = $('#upload')[0].files[0].name;
+                console.log(file);
+                $('#upload-label > p').text(file);
+                console.log("wawa2");
+        }
+    </script>
+
+
     <link rel="stylesheet" href="{{asset("home.css")}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -68,11 +82,11 @@
             <form id="new-post" action="{{route('post')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <label for="upload">
+                <label for="upload" id="upload-label">
                     <span class="material-icons md-24">add</span>
                     <p style="padding: 0 10%; margin: 0; grid-column: 2;">Browse files...</p>
                 </label>
-                <input type="file" id="upload" name="upload">
+                <input type="file" id="upload" name="upload" onchange="uploadChange()">
 
                 <label for="submit">
                     <span class="material-icons md-24">send</span>

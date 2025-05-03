@@ -248,10 +248,11 @@ body {
 }
 #text-fields > div > input, #text-fields > div > textarea{
     height: 100%;
-    background-color: var(--peach);
+    background-color: var(--surface);
+    border: var(--brown) 1px dashed;
     border-radius: var(--border-radius);
-    border: none;
     text-align: start;
+    padding-left: 6%;
 }
 textarea{
     width: 100%;
@@ -267,8 +268,26 @@ textarea{
 }
 #image-fields > div{
     display: grid;
-    grid-template-columns: 20% 40% 40%;
+    grid-template-columns: 20% 50% 30%;
     align-items: center;
+    margin-bottom: 2rem;
+}
+#image-fields > div > label{
+    grid-column: 2;
+    font-family: 'Nagino';
+    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 3%;
+    background-color: var(--brown);
+    color: var(--surface);
+    display: grid;
+    grid-template-columns: min-content auto;
+    align-items: center;
+}
+#image-fields > div > input{
+    display: none;
+    grid-column: 3;
 }
 #submit{
     height: 10%;
