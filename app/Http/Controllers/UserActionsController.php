@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,7 +71,6 @@ class UserActionsController
 
     }
 
-
     public function comment(Request $request){
         $request->validate([
             'content' => 'string|max:255',
@@ -84,6 +84,25 @@ class UserActionsController
         ]);
 
         $newComment->save();
+
+        return back();
+    }
+
+    public function like(Request $request)
+    {
+        $request->validate([
+            'post_id' => 'integer',
+            'user_id' => 'integer',
+        ]);
+
+        $newLike = Like::firstOrCreate([
+            'user_id' => Auth::id(),
+            'post_id' => $request->input('post_id'),
+        ],[
+           'user_id' => $request->input('user_id'),
+           'post_id' => $request->input('post_id'),
+        ]);
+        $newLike->save();
 
         return back();
     }

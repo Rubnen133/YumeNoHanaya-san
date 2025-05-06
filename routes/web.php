@@ -29,4 +29,5 @@ Route::middleware(UserAuthMiddleware::class)->group(function () {
     Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
     Route::post('/edit', 'App\Http\Controllers\UserActionsController@edit')->name('edit');
     Route::post('/comment', 'App\Http\Controllers\UserActionsController@comment')->name('comment');
+    Route::post('/like', 'App\Http\Controllers\UserActionsController@like')->name('like');
 });

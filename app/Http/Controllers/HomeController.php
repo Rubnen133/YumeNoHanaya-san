@@ -17,7 +17,7 @@ class HomeController
             if (!Str::startsWith($loggedUserAvatar, 'http')) {
                 $loggedUserAvatar = 'storage/' .$loggedUserAvatar;
             }
-            $likes = Like::where('user_id', Auth::id())->get('post_id');
+            $likes = Auth::user()->likes()->get('post_id');
             $like_ids = [];
             foreach ($likes as $like) {
                 $like_ids[] = $like->post_id;
@@ -51,7 +51,7 @@ class HomeController
                 $loggedUserAvatar = asset('storage/' .$loggedUserAvatar);
             }
 
-            $likes = Like::where('user_id', Auth::id())->get('post_id');
+            $likes = Auth::user()->likes()->get('post_id');
             $like_ids = [];
             foreach ($likes as $like) {
                 $like_ids[] = $like->post_id;

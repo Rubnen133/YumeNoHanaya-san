@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Yume No Hanaya-san</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         function uploadChange(){
                 console.log("wawa1");
@@ -11,6 +11,24 @@
                 console.log(file);
                 $('#upload-label > p').text(file);
                 console.log("wawa2");
+        }
+
+        function like(post_id){
+            console.log(post_id);
+            $.ajax({
+                url : "{{ route('like') }}",
+                data : {
+                    "_token": "{{ csrf_token() }}",
+                    'user_id' : {{\Illuminate\Support\Facades\Auth::id()}},
+                    'post_id' : post_id
+                },
+                type : 'POST',
+                dataType : 'json',
+                error : function (result){
+                    console.log(result)
+                }
+            });
+            $('#a'.concat(post_id)).css('color', 'var(--accent-red)');
         }
     </script>
 

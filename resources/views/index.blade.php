@@ -9,13 +9,13 @@
         <img src="{{asset("storage/{$post['image']}")}}" alt="" class="post-img">
         <div class="post-bottom">
             <div class="post-interaction">
-                <span class="material-icons md-36" style="
+                <a id="a{{$post['id']}}" onclick="like({{$post['id']}})" class="material-icons md-36" style="
                         @if(\Illuminate\Support\Facades\Auth::user() != null)
                             @if(in_array($post['id'], $like_ids))
                                 color: var(--accent-red) !important;
                             @endif
                         @endif
-                ">favorite</span>
+                ">favorite</a>
 
                 <a  href="{{route('detail', ['id'=>$post['id']])}}" class="material-icons md-36">comment</a>
             </div>
