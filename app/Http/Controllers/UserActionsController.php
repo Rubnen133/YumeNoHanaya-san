@@ -40,23 +40,22 @@ class UserActionsController
         ]);
 
 
-        if ($request->hasFile('avatar')) {
-            $imageName = "user{$user->id}.".$request->file('avatar')->extension();
+        if ($request->hasFile('avatarUpload')) {
+            $imageName = "user{$user->id}.".$request->file('avatarUpload')->extension();
             Storage::disk('public')->put(
-                $imageName, file_get_contents($request->file('avatar')->getRealPath())
+                $imageName, file_get_contents($request->file('avatarUpload')->getRealPath())
             );
             $user->avatar = $imageName;
 
         }
-        // TODO: add column banner to table user
-        /*if ($request->hasFile('banner')) {
-            $imageName = "user{$user->id}.".$request->file('banner')->extension();
+        if ($request->hasFile('bannerUpload')) {
+            $imageName = "user{$user->id}banner.".$request->file('bannerUpload')->extension();
             Storage::disk('public')->put(
-                $imageName, file_get_contents($request->file('banner')->getRealPath())
+                $imageName, file_get_contents($request->file('bannerUpload')->getRealPath())
             );
             $user->banner = $imageName;
 
-        }*/
+        }
         if($request->has('username') && $request->get('username') != null){
             $user->name = $request->input('username');
         }
@@ -67,6 +66,7 @@ class UserActionsController
             $user->bio = $request->input('description');
         }
         $user->save();
+        dd($user);
         return redirect()->route('profile');
 
     }

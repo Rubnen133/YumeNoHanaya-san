@@ -17,6 +17,7 @@ class UserPagesController
             'username' => $user->name,
             'bio' => $user->bio ?? "",
             'pronouns' => $user->pronouns ?? "",
+            'banner' => $user->banner ?? null,
         ];
 
         if (Str::startsWith($user->avatar, 'http')) {

@@ -100,19 +100,19 @@
                 <div id="image-fields">
                     <div>
                         <label style="grid-column: 1; background-color: #00000000; color: var(--brown);">Avatar</label>
-                        <label for="avatar" id="avatar-upload-label">
+                        <label for="avatarUpload" id="avatar-upload-label">
                             <span class="material-icons md-24">add</span>
                             <p style="padding: 0 10%; margin: 0; grid-column: 2;">Browse files...</p>
                         </label>
-                        <input type="file" name="avatarUpload" onchange="uploadChange('avatar')">
+                        <input type="file" name="avatarUpload" id="avatarUpload" onchange="uploadChange('avatar')">
                     </div>
                     <div>
                         <label style="grid-column: 1; background-color: #00000000; color: var(--brown);">Banner</label>
-                        <label for="banner" id="banner-upload-label">
+                        <label for="bannerUpload" id="banner-upload-label">
                             <span class="material-icons md-24">add</span>
                             <p style="padding: 0 10%; margin: 0; grid-column: 2;">Browse files...</p>
                         </label>
-                        <input type="file" name="bannerUpload" onchange="uploadChange('banner')">
+                        <input type="file" name="bannerUpload" id="bannerUpload" onchange="uploadChange('banner')">
                     </div>
                 </div>
                 <input type="submit" name="submit" id="submit">
