@@ -13,6 +13,10 @@ use Symfony\Component\Console\Input\Input;
 class UserActionsController
 {
     public function post(Request $request){
+        $request->validate([
+           'upload' => 'required|image|mimes:jpeg,jpg,png,gif',
+        ]);
+
         $newPost = Post::create([
             'user_id' => Auth::id(),
             'image' => 'images/background1.png'
@@ -35,8 +39,8 @@ class UserActionsController
             'username' => 'string|max:255|nullable',
             'pronouns' => 'string|max:20|nullable',
             'description' => 'string|max:255|nullable',
-            'avatar' => 'image|nullable',
-            'banner' => 'image|nullable',
+            'avatar' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg',
+            'banner' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
 
@@ -66,7 +70,6 @@ class UserActionsController
             $user->bio = $request->input('description');
         }
         $user->save();
-        dd($user);
         return redirect()->route('profile');
 
     }

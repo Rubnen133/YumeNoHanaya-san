@@ -66,11 +66,6 @@
                 </div>
 
                 <div class="single-link">
-                    <span class="material-icons md-36">bookmark</span>
-                    <div class="link-text">Saved</div>
-                </div>
-
-                <div class="single-link">
                     <span class="material-icons md-36">favorite</span>
                     <a class="link-text" href="{{route('liked')}}">Liked</a>
                 </div>
@@ -84,6 +79,7 @@
                 <img src="{{$loggedUserAvatar}}" alt="" id="sidebar-pfp">
                 <div>
                     @yield("username")
+                    <a href="{{route('logout')}}" class="material-icons md-24" style="margin-left:1rem;">logout</a>
                 </div>
             @endguest
         </div>

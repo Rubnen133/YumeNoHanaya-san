@@ -296,4 +296,8 @@ textarea{
     grid-row: 1;
     align-self: end;
     justify-self: end;
+    border-radius: var(--border-radius);
+    background-color: var(--accent-red);
+    border: none;
+    outline: none;
 }

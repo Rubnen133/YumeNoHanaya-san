@@ -44,11 +44,6 @@
                 </div>
 
                 <div class="single-link">
-                    <span class="material-icons md-36">bookmark</span>
-                    <div class="link-text">Saved</div>
-                </div>
-
-                <div class="single-link">
                     <span class="material-icons md-36">favorite</span>
                     <a class="link-text" href="{{route('liked')}}">Liked</a>
                 </div>
@@ -59,6 +54,7 @@
             <img src="@yield('pfp')" alt="" id="sidebar-pfp">
             <div>
                 @yield('username')
+                <a href="{{route('logout')}}" class="material-icons md-24" style="margin-left:1rem;">logout</a>
             </div>
         </div>
     </div>
@@ -74,7 +70,7 @@
                 <div id="description">
                     @yield('description')
                 </div>
-                <span class="material-icons md-24">edit</span>
+                <!--<span class="material-icons md-24">edit</span>-->
             </div>
         </div>
 
@@ -115,7 +111,7 @@
                         <input type="file" name="bannerUpload" id="bannerUpload" onchange="uploadChange('banner')">
                     </div>
                 </div>
-                <input type="submit" name="submit" id="submit">
+                <input type="submit" name="submit" id="submit" value="Apply edits">
             </form>
         </div>
     </div>
