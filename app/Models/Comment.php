@@ -10,6 +10,11 @@ class Comment extends Model
     use HasFactory;
 
     protected $table = 'comments';
+    protected $fillable = [
+        'user_id',
+        'post_id',
+        'content',
+    ];
     private $id = 'id';
     private $user_id = 'user_id';
     private $father_type = 'father_type';
@@ -71,5 +76,8 @@ class Comment extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 }

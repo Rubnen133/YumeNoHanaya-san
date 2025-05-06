@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->tinyText('content');
             $table->foreignId('user_id');
-            $table->string('father_type', length: 10);
-            $table->foreignId('father_id');
+            $table->foreignId('post_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 

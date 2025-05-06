@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -67,5 +68,23 @@ class UserActionsController
         $user->save();
         return redirect()->route('profile');
 
+    }
+
+
+    public function comment(Request $request){
+        $request->validate([
+            'content' => 'string|max:255',
+            'postid' => 'integer',
+        ]);
+
+        $newComment = Comment::create([
+            'user_id' => Auth::id(),
+            'post_id' => $request->input('postid'),
+            'content' => $request->input('content'),
+        ]);
+
+        $newComment->save();
+
+        return back();
     }
 }

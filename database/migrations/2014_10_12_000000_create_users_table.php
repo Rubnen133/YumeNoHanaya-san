@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('avatar')->nullable();
+            $table->string('banner')->nullable();
             $table->string('bio')->nullable();
             $table->string('pronouns', length: 20)->nullable();
             $table->string('git_token');

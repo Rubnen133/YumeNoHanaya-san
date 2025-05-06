@@ -42,4 +42,37 @@ class HomeController
             ->with('loggedUserAvatar', $loggedUserAvatar ?? "")
             ->with('like_ids', $like_ids ?? []);
     }
+
+    public function detail($id){
+        $viewData = [];
+        if(Auth::user()){
+            $loggedUserAvatar = Auth::user()->avatar;
+            if (!Str::startsWith($loggedUserAvatar, 'http')) {
+                $loggedUserAvatar = asset('storage/' .$loggedUserAvatar);
+            }
+
+            $likes = Like::where('user_id', Auth::id())->get('post_id');
+            $like_ids = [];
+            foreach ($likes as $like) {
+                $like_ids[] = $like->post_id;
+            }
+        }
+
+        $post = Post::find($id);
+        $user = User::find($post->user_id);
+        $viewData = [];
+        $viewData['id'] = $post->id;
+        $viewData['image'] = $post->image;
+        $viewData['username'] = $user->name;
+        if (Str::startsWith($user->avatar, 'http')) {
+            $viewData['avatar'] = $user->avatar;
+        }else {
+            $viewData['avatar'] = 'storage/'.$user->avatar;
+        }
+        $viewData['comments'] = $post->comments;
+        return view('detail')
+            ->with('viewData', $viewData)
+            ->with('loggedUserAvatar', $loggedUserAvatar ?? "")
+            ->with('like_ids', $like_ids ?? []);
+    }
 }

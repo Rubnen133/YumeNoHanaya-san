@@ -1,0 +1,50 @@
+:root{
+    --surface: #FFF1EB;
+    --peach: #FBBEA2;
+    --dark-peach: #F08E8F;
+    --accent-red: #EA5A3C;
+    --brown: #604141;
+
+    --border-radius: 2rem;
+
+
+    overscroll-behavior: none;
+}
+textarea{
+    width: 90%;
+    height: 80% !important;
+    resize: none;
+    font-family: 'Nagino';
+    padding: 6% 4%;
+    outline: none;
+    background-color: var(--surface);
+    border: var(--brown) 1px dashed;
+    border-radius: var(--border-radius);
+    text-align: start;
+    margin-bottom: 2vh;
+}
+input[type='submit']{
+    padding: 3% 3%;
+    border-radius: var(--border-radius);
+    background-color: var(--brown);
+    color: var(--surface);
+    border: none;
+    outline: none;
+    float: right;
+}
+.comment{
+    margin-top: 6vh;
+    width: 94%;
+    height: max-content;
+    border-radius: var(--border-radius);
+    background: linear-gradient(90deg, var(--dark-peach) 0%, var(--peach) 100%);
+    border: var(--brown) 1px dashed;
+    margin-bottom: 4vh;
+    color: var(--brown);
+    padding: 3% 3%;
+    font-family: 'Nagino';
+
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 2rem 60%;
+}

@@ -17,7 +17,7 @@
                         @endif
                 ">favorite</span>
 
-                <span class="material-icons md-36">comment</span>
+                <a  href="{{route('detail', ['id'=>$post['id']])}}" class="material-icons md-36">comment</a>
             </div>
         </div>
     </div>

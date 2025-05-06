@@ -18,6 +18,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/', "App\Http\Controllers\HomeController@index")->name("home");
+Route::get('/detail/{id}', "App\Http\Controllers\HomeController@detail")->name("detail");
 Route::get('/nina', 'App\Http\Controllers\LoginController@nina')->name('nina');
 Route::get('/auth/redirect', 'App\Http\Controllers\LoginController@gitredirect')->name('git_redirect');
 Route::get('/auth/callback', 'App\Http\Controllers\LoginController@gitcallback')->name('git_callback');;
@@ -27,4 +28,5 @@ Route::middleware(UserAuthMiddleware::class)->group(function () {
     Route::get('/liked', 'App\Http\Controllers\UserPagesController@liked')->name('liked');
     Route::post('/post', 'App\Http\Controllers\UserActionsController@post')->name('post');
     Route::post('/edit', 'App\Http\Controllers\UserActionsController@edit')->name('edit');
+    Route::post('/comment', 'App\Http\Controllers\UserActionsController@comment')->name('comment');
 });
