@@ -10,6 +10,10 @@
             $('#'.concat(uploadField, '-upload-label > p')).text(file);
             console.log("wawa2");
         }
+
+        function showForm(){
+            $('#edit').toggle();
+        }
     </script>
     <link rel="stylesheet" href="profile.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -70,12 +74,12 @@
                 <div id="description">
                     @yield('description')
                 </div>
-                <!--<span class="material-icons md-24">edit</span>-->
+                <a href="#" onclick="showForm()" class="material-icons md-24">edit</a>
             </div>
         </div>
 
 
-        <div id="edit">
+        <div id="edit" hidden>
             <form action="{{route('edit')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('post')

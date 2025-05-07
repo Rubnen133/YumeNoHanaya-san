@@ -97,15 +97,19 @@ class UserActionsController
             'post_id' => 'integer',
             'user_id' => 'integer',
         ]);
-
-        $newLike = Like::firstOrCreate([
-            'user_id' => Auth::id(),
-            'post_id' => $request->input('post_id'),
-        ],[
-           'user_id' => $request->input('user_id'),
-           'post_id' => $request->input('post_id'),
-        ]);
-        $newLike->save();
+        $like = Like::where('user_id', Auth::id())->where('post_id', $request->input('post_id'))->first();
+        if($like){
+            $like->delete();
+        }else{
+            $newLike = Like::firstOrCreate([
+                'user_id' => Auth::id(),
+                'post_id' => $request->input('post_id'),
+            ],[
+                'user_id' => $request->input('user_id'),
+                'post_id' => $request->input('post_id'),
+            ]);
+            $newLike->save();
+        }
 
         return back();
     }

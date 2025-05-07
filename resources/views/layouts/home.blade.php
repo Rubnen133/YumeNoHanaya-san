@@ -28,7 +28,13 @@
                     console.log(result)
                 }
             });
-            $('#a'.concat(post_id)).css('color', 'var(--accent-red)');
+            let elem = $('#a'.concat(post_id));
+            console.log(elem.css('color'));
+            if(elem.css('color') === 'rgb(234, 90, 60)'){
+                elem.css('color', 'var(--brown)');
+            }else{
+                elem.css('color', 'var(--accent-red)');
+            }
         }
     </script>
 
