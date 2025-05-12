@@ -55,11 +55,11 @@
             <div class="sidebar-line"></div>
         </div>
         <div id="sidebar-bottom">
-            <img src="@yield('pfp')" alt="" id="sidebar-pfp">
-            <div>
-                @yield('username')
-                <a href="{{route('logout')}}" class="material-icons md-24" style="margin-left:1rem;">logout</a>
-            </div>
+                <img src="@yield('pfp')" alt="" id="sidebar-pfp">
+                <div>
+                    @yield("username")
+                </div>
+                <a href="{{route('logout')}}" class="material-icons md-24" style="margin-left:1rem; color: var(--brown)">logout</a>
         </div>
     </div>
     <div id="profile">

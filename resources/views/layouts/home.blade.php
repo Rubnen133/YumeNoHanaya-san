@@ -81,12 +81,13 @@
         <div id="sidebar-bottom">
             @if(\Illuminate\Support\Facades\Auth::user() == null)
                 <div style="grid-column: 2">Not logged in</div>
+                <a href="{{route('git_redirect')}}" class="material-icons md-24" style="grid-column: 3; color: var(--brown)">login</a>
             @else
                 <img src="{{$loggedUserAvatar}}" alt="" id="sidebar-pfp">
                 <div>
                     @yield("username")
-                    <a href="{{route('logout')}}" class="material-icons md-24" style="margin-left:1rem;">logout</a>
                 </div>
+                <a href="{{route('logout')}}" class="material-icons md-24" style="margin-left:1rem; color: var(--brown)">logout</a>
             @endguest
         </div>
     </div>
