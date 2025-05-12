@@ -3,6 +3,34 @@
     <title>Yume No Hanaya-san</title>
     <link rel="stylesheet" href="{{asset("home.css")}}">
     <link rel="stylesheet" href="{{asset("comments.css")}}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+
+        function like(post_id){
+            console.log(post_id);
+            $.ajax({
+                url : "{{ route('like') }}",
+                data : {
+                    "_token": "{{ csrf_token() }}",
+                    'user_id' : {{\Illuminate\Support\Facades\Auth::id()}},
+                    'post_id' : post_id
+                },
+                type : 'POST',
+                dataType : 'json',
+                error : function (result){
+                    console.log(result)
+                }
+            });
+            let elem = $('#a'.concat(post_id));
+            console.log(elem.css('color'));
+            if(elem.css('color') === 'rgb(234, 90, 60)'){
+                elem.css('color', 'var(--brown)');
+            }else{
+                elem.css('color', 'var(--accent-red)');
+            }
+        }
+
+    </script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         .material-icons.md-18 { font-size: .6rem; }

@@ -8,13 +8,14 @@
         <img src="{{asset("storage/{$viewData['image']}")}}" alt="" class="post-img">
         <div class="post-bottom">
             <div class="post-interaction">
-                <span class="material-icons md-36" style="grid-column: 2;
+                <a id="a{{$viewData['id']}}" onclick="like({{$viewData['id']}})" class="material-icons md-36" style="grid-column: 2;
                         @if(\Illuminate\Support\Facades\Auth::user() != null)
                             @if(in_array($viewData['id'], $like_ids))
                                 color: var(--accent-red) !important;
                             @endif
                         @endif
-                ">favorite</span>
+                ">favorite</a>
+
             </div>
         </div>
     </div>
