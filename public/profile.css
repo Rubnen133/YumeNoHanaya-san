@@ -303,3 +303,36 @@ textarea{
     border: none;
     outline: none;
 }
+
+.single-post{
+    display: grid;
+    grid-template-columns: 20% 70%;
+    gap: 10%;
+    grid-template-rows: 100%;
+    margin-bottom: 2rem;
+    font-family: 'Nagino';
+    color: var(--brown);
+}
+
+.post-image{
+    grid-column: 1;
+    width: 100%;
+    background-size: cover;
+    background-color: var(--dark-peach);
+    border-radius: var(--border-radius);
+    border: var(--brown) 1px dashed;
+    height: 100%;
+
+}
+.post-info{
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.line{
+    height: 0;
+    width: 100%;
+    border-top: var(--brown) 2px dashed;
+    margin-bottom: 2rem;
+}

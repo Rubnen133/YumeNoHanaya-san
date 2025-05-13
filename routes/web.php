@@ -30,4 +30,5 @@ Route::middleware(UserAuthMiddleware::class)->group(function () {
     Route::post('/edit', 'App\Http\Controllers\UserActionsController@edit')->name('edit');
     Route::post('/comment', 'App\Http\Controllers\UserActionsController@comment')->name('comment');
     Route::post('/like', 'App\Http\Controllers\UserActionsController@like')->name('like');
+    Route::get('/delete/{id}', 'App\Http\Controllers\UserActionsController@delete')->name('delete');
 });

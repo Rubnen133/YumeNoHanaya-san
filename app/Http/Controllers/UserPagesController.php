@@ -25,6 +25,10 @@ class UserPagesController
         }else{
             $viewData['avatar'] = 'storage/'.$user->avatar;
         }
+
+
+        $viewData['posts'] = $user->posts->sortByDesc('created_at');
+
         return view('profile')->with('viewData', $viewData);
     }
 

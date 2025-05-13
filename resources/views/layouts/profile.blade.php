@@ -13,6 +13,8 @@
 
         function showForm(){
             $('#edit').toggle();
+            $('#posts').toggle();
+
         }
     </script>
     <link rel="stylesheet" href="profile.css">
@@ -118,5 +120,12 @@
                 <input type="submit" name="submit" id="submit" value="Apply edits">
             </form>
         </div>
+
+
+        <div id="posts">
+            @yield('posts')
+        </div>
+
+        <div style="height: 5vh"></div>
     </div>
 </body>

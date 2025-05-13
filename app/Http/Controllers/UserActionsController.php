@@ -113,4 +113,16 @@ class UserActionsController
 
         return back();
     }
+
+    public function delete($id){
+        $post = Post::find($id);
+
+        $postImage = $post->image;
+        Storage::disk('public')->delete($postImage);
+
+        $post->comments()->delete();
+        $post->likes()->delete();
+        $post->delete();
+        return back();
+    }
 }
