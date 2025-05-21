@@ -1,6 +1,6 @@
-[*Yume No Hanaya-san*](https://github.com/Rubnen133/YumeNoHanaya-san) è un social media per la condivisione di immagini di fiori, preferibilemente a toni caldi.
-
-# Framework, linguaggi, software e strumenti utilizzati
+[*Yume No Hanaya-san*](https://github.com/Rubnen133/YumeNoHanaya-san) is a social media for sharing images of flowers, preferrably ones with warm tones and cozy vibes.
+The name comes from the album Yume No Kissaten, from the Japanese composer Mitsukiyo. While the album's title means Yume's Coffee Shop - Yume being a fictional town - the site's name means Yume's Flower Shop.
+# Framework, languages, softwares and tools
 Per creare la webapp sono stati usati:
 - Laravel 9.0, MVC framework for PHP
 - PhpStorm, a JetBrains IDE for PHP developing
@@ -15,7 +15,82 @@ Per creare la webapp sono stati usati:
 - Figma, used to imagine/sketch frontend design ideas
 
 # Models and Database tables
-## User
+
+## Database Tables
+```mermaid
+classDiagram
+direction BT
+class comments {
+   tinytext content
+   bigint(20) unsigned user_id
+   bigint(20) unsigned post_id
+   timestamp created_at
+   timestamp updated_at
+   bigint(20) unsigned id
+}
+class failed_jobs {
+   varchar(255) uuid
+   text connection
+   text queue
+   longtext payload
+   longtext exception
+   timestamp failed_at
+   bigint(20) unsigned id
+}
+class likes {
+   bigint(20) unsigned user_id
+   bigint(20) unsigned post_id
+   timestamp created_at
+   timestamp updated_at
+   bigint(20) unsigned id
+}
+class migrations {
+   varchar(255) migration
+   int(11) batch
+   int(10) unsigned id
+}
+class password_resets {
+   varchar(255) token
+   timestamp created_at
+   varchar(255) email
+}
+class personal_access_tokens {
+   varchar(255) tokenable_type
+   bigint(20) unsigned tokenable_id
+   varchar(255) name
+   varchar(64) token
+   text abilities
+   timestamp last_used_at
+   timestamp expires_at
+   timestamp created_at
+   timestamp updated_at
+   bigint(20) unsigned id
+}
+class posts {
+   varchar(40) image
+   bigint(20) unsigned user_id
+   timestamp created_at
+   timestamp updated_at
+   bigint(20) unsigned id
+}
+class users {
+   varchar(255) git_id
+   varchar(255) name
+   varchar(255) email
+   varchar(255) avatar
+   varchar(255) banner
+   varchar(255) bio
+   varchar(20) pronouns
+   varchar(255) git_token
+   varchar(100) remember_token
+   timestamp created_at
+   timestamp updated_at
+   bigint(20) unsigned id
+}
+
+```
+![[Pasted image 20250521101532.png]]
+## User Model
 #### Database Fields  
 | Field Name        | Type            | Description                  |
 | ----------------- | --------------- | ---------------------------- |
@@ -220,13 +295,6 @@ The following controllers/methods are protected by : `UserAuthMiddleware`
 - UserActionsController (all methods)
 - UserPagesController (all methods)
 - LoginController (logout method)
-# File Upload Handling
-### Image Storage
-- Images stored in public disk
-- Unique naming convention:
-    - Posts: `post{id}.{extension}`
-    - User avatars: `user{id}.{extension}`
-    - User banners: `user{id}banner.{extension}`
 # Authentication  
 The application uses GitHub OAuth for authentication, as evidenced by the GitHub-related fields in the User model. 
 ## Routes
